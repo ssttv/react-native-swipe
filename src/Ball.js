@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Animated, View } from "react-native";
+import { StyleSheet, Text, Animated, View } from "react-native";
 
 const styles = StyleSheet.create({
   ball: {
     height: 60,
     width: 60,
-    borderRadius: 30,
+    borderRadius: 180,
     borderWidth: 30,
     borderColor: "black"
   }
@@ -23,6 +23,7 @@ class Ball extends Component {
     return (
       <Animated.View style={this.position.getLayout()}>
         <View style={styles.ball} />
+        <Text>Oi mate</Text>
       </Animated.View>
     );
   }
