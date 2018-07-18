@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, Platform, View } from "react-native";
+import { Card, Button } from "react-native-elements";
 import Deck from "./src/Deck";
 
 const styles = StyleSheet.create({
@@ -61,9 +62,16 @@ const DATA = [
 ];
 
 export default class App extends React.Component {
-  renderCard(item) {
-    return <Text>{item.text}</Text>;
-  }
+  renderCard = item => (
+    <Card title={item.text} image={{ uri: item.uri }}>
+      <Text>Boilerplate Text</Text>
+      <Button
+        icon={{ name: "code" }}
+        backgroundColor="#03A9F4"
+        title="Button Text"
+      />
+    </Card>
+  );
 
   render() {
     return (
