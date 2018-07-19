@@ -63,8 +63,10 @@ const DATA = [
 
 export default class App extends React.Component {
   renderCard = item => (
-    <Card title={item.text} image={{ uri: item.uri }}>
-      <Text>Boilerplate Text</Text>
+    <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
+      <Text style={{ marginBottom: 10 }}>
+        This card can be customized further
+      </Text>
       <Button
         icon={{ name: "code" }}
         backgroundColor="#03A9F4"
