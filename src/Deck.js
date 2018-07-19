@@ -22,9 +22,11 @@ class Deck extends Component {
   }
 
   render() {
-    return (
-      <View {...this.state.panResponder.panHandlers}>{this.renderCards()}</View>
-    );
+    const {
+      panResponder: { panHandlers }
+    } = this.state;
+
+    return <View {...panHandlers}>{this.renderCards()}</View>;
   }
 }
 
