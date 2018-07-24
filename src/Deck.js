@@ -12,7 +12,9 @@ class Deck extends Component {
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
       },
-      onPanResponderRelease: () => {}
+      onPanResponderRelease: () => {
+        this.resetPosition();
+      }
     });
 
     this.state = { panResponder, position };
@@ -20,9 +22,13 @@ class Deck extends Component {
 
   getCardStyle() {
     const { position } = this.state;
+    const rotate = position.x.interpolate({
+      inputRange: [-500, 0, 500],
+      outputRange: ["-120deg", "0deg", "120deg"]
+    });
     return {
       ...position.getLayout(),
-      transform: [{ rotate: "45deg" }]
+      transform: [{ rotate }]
     };
   }
 
