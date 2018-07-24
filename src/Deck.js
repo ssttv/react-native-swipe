@@ -34,8 +34,7 @@ class Deck extends Component {
 
   renderCards() {
     const {
-      panResponder: { panHandlers },
-      position
+      panResponder: { panHandlers }
     } = this.state;
     const { data, renderCard } = this.props;
     return data.map((item, index) => {
