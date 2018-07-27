@@ -29,7 +29,7 @@ class Deck extends Component {
           this.forceSwipeRight();
         } else if (gesture.dx < -SWIPE_THRESHOLD) {
           console.log("swiped left");
-          this.resetPosition();
+          this.forceSwipeLeft();
         } else {
           this.resetPosition();
         }
@@ -43,6 +43,14 @@ class Deck extends Component {
     const { position } = this.state;
     Animated.timing(position, {
       toValue: { x: SCREEN_WIDTH, y: 0 },
+      duration: SWIPE_OUT_DURATION
+    }).start();
+  }
+
+  forceSwipeLeft() {
+    const { position } = this.state;
+    Animated.timing(position, {
+      toValue: { x: -SCREEN_WIDTH, y: 0 },
       duration: SWIPE_OUT_DURATION
     }).start();
   }
