@@ -25,8 +25,10 @@ class Deck extends Component {
       onPanResponderRelease: () => {
         if (gesture.dx > SWIPE_THRESHOLD) {
           console.log("swiped right");
+          this.resetPosition();
         } else if (gesture.dx < -SWIPE_WIDTH) {
           console.log("swiped left");
+          this.resetPosition();
         } else {
           this.resetPosition();
         }
