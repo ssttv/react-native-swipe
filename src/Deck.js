@@ -21,7 +21,8 @@ class Deck extends Component {
   }
 
   resetPosition() {
-    Animated.spring(this.state.position, {
+    const { position } = this.state;
+    Animated.spring(position, {
       toValue: { x: 0, y: 0 }
     }).start();
   }
