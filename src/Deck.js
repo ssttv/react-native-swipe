@@ -20,6 +20,12 @@ class Deck extends Component {
     this.state = { panResponder, position };
   }
 
+  resetPosition() {
+    Animated.spring(this.state.position, {
+      toValue: { x: 0, y: 0 }
+    }).start();
+  }
+
   getCardStyle() {
     const { position } = this.state;
     const rotate = position.x.interpolate({
