@@ -10,7 +10,7 @@ import {
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
-const SWIPE_OUT_DURATION = 250;
+const SWIPE_OUT_DURATION = 750;
 
 class Deck extends Component {
   constructor(props) {
@@ -52,7 +52,12 @@ class Deck extends Component {
     const { position } = this.state;
     Animated.spring(position, {
       toValue: { x: 0, y: 0 }
-    }).start();
+    }).start(() => this.onSwipeComplete(direction));
+  }
+
+  onSwipeComplete(direction) {
+    const { onSwipeRight, onSwipeLeft } = this.props;
+    direction === "right" ? onSwipeRight() : onSwipeLeft();
   }
 
   getCardStyle() {
