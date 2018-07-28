@@ -86,12 +86,17 @@ class Deck extends Component {
       index,
       panResponder: { panHandlers }
     } = this.state;
-    const { data, renderCard } = this.props;
+    const { data, renderCard, renderNoMoreCards } = this.props;
+
+    if (index === data.length) {
+      return renderNoMoreCards();
+    }
+
     return data.map((item, itemId) => {
       if (itemId < index) {
         return null;
       }
-      if (itemId === 0) {
+      if (itemId === index) {
         return (
           <Animated.View
             key={item.id}
