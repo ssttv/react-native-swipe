@@ -49,6 +49,7 @@ class Deck extends Component {
     const { index } = this.state;
     const item = data[index];
     direction === "right" ? onSwipeRight() : onSwipeLeft();
+    this.setState({ index: index + 1 });
   }
 
   getCardStyle() {
