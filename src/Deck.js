@@ -36,23 +36,7 @@ class Deck extends Component {
       }
     });
 
-    this.state = { panResponder, position };
-  }
-
-  forceSwipe(direction) {
-    const { position } = this.state;
-    const x = direction === "right" ? SCREEN_WIDTH : -SCREEN_WIDTH;
-    Animated.timing(position, {
-      toValue: { x, y: 0 },
-      duration: SWIPE_OUT_DURATION
-    }).start();
-  }
-
-  resetPosition() {
-    const { position } = this.state;
-    Animated.spring(position, {
-      toValue: { x: 0, y: 0 }
-    }).start(() => this.onSwipeComplete(direction));
+    this.state = { panResponder, position, index: 0 };
   }
 
   onSwipeComplete(direction) {
@@ -70,6 +54,22 @@ class Deck extends Component {
       ...position.getLayout(),
       transform: [{ rotate }]
     };
+  }
+
+  resetPosition() {
+    const { position } = this.state;
+    Animated.spring(position, {
+      toValue: { x: 0, y: 0 }
+    }).start();
+  }
+
+  forceSwipe(direction) {
+    const { position } = this.state;
+    const x = direction === "right" ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    Animated.timing(position, {
+      toValue: { x, y: 0 },
+      duration: SWIPE_OUT_DURATION
+    }).start(() => this.onSwipeComplete(direction));
   }
 
   renderCards() {
