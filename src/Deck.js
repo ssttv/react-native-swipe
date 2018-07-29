@@ -106,7 +106,7 @@ class Deck extends Component {
         return (
           <Animated.View
             key={item.id}
-            style={this.getCardStyle()}
+            style={[this.getCardStyle(), styles.card]}
             {...panHandlers}
           >
             {renderCard(item)}
