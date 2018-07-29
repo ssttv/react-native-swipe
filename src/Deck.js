@@ -8,6 +8,8 @@ import {
   Dimensions
 } from "react-native";
 
+const styles = StyleSheet.create({});
+
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 750;
