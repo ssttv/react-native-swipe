@@ -8,7 +8,11 @@ import {
   Dimensions
 } from "react-native";
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  card: {
+    position: "absolute"
+  }
+});
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
