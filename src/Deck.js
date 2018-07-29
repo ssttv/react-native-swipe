@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 const styles = StyleSheet.create({
-  card: {
+  cardOfStack: {
     position: "absolute"
   }
 });
@@ -106,7 +106,7 @@ class Deck extends Component {
         return (
           <Animated.View
             key={item.id}
-            style={[this.getCardStyle(), styles.card]}
+            style={[this.getCardStyle(), styles.cardOfStack]}
             {...panHandlers}
           >
             {renderCard(item)}
