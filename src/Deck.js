@@ -8,15 +8,16 @@ import {
   Dimensions
 } from "react-native";
 
-const styles = StyleSheet.create({
-  cardOfStack: {
-    position: "absolute"
-  }
-});
-
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 750;
+
+const styles = StyleSheet.create({
+  cardOfStack: {
+    position: "absolute",
+    width: SCREEN_WIDTH
+  }
+});
 
 class Deck extends Component {
   static defaultProps = {
@@ -98,31 +99,33 @@ class Deck extends Component {
       return renderNoMoreCards();
     }
 
-    return data.map((item, itemId) => {
-      if (itemId < index) {
-        return null;
-      }
-      if (itemId === index) {
+    return data
+      .map((item, itemId) => {
+        if (itemId < index) {
+          return null;
+        }
+        if (itemId === index) {
+          return (
+            <Animated.View
+              key={item.id}
+              style={[this.getCardStyle(), styles.cardOfStack]}
+              {...panHandlers}
+            >
+              {renderCard(item)}
+            </Animated.View>
+          );
+        }
         return (
-          <Animated.View
-            key={item.id}
-            style={[this.getCardStyle(), styles.cardOfStack]}
-            {...panHandlers}
-          >
+          <View key={item.id} style={styles.cardOfStack}>
             {renderCard(item)}
-          </Animated.View>
+          </View>
         );
-      }
-      return (
-        <View key={item.id} style={styles.cardOfStack}>
-          {renderCard(item)}
-        </View>
-      );
-    });
+      })
+      .reverse();
   }
 
   render() {
-    return <View>{this.renderCards()}</View>;
+    return <Animated.View>{this.renderCards()}</Animated.View>;
   }
 }
 
