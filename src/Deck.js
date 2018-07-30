@@ -3,7 +3,8 @@ import {
   View,
   Animated,
   PanResponder,
-  Text,
+  LayoutAnimation,
+  UIManager,
   StyleSheet,
   Dimensions
 } from "react-native";
@@ -51,11 +52,21 @@ class Deck extends Component {
     this.state = { panResponder, position, index: 0 };
   }
 
+  componentWillUpdate() {
+    UIManager.setLayoutAnimationEnabledExperimental &&
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+    LayoutAnimation.spring();
+  }
+
   onSwipeComplete(direction) {
     const { onSwipeRight, onSwipeLeft, data } = this.props;
     const { position, index } = this.state;
     const item = data[index];
-    direction === "right" ? onSwipeRight() : onSwipeLeft();
+    if (direction === "right") {
+      onSwipeRight(item);
+    } else if (direction === "left") {
+      onSwipeLeft(item);
+    }
     position.setValue({ x: 0, y: 0 });
     this.setState({ index: index + 1 });
   }
