@@ -116,7 +116,10 @@ class Deck extends Component {
           );
         }
         return (
-          <View key={item.id} style={styles.cardOfStack}>
+          <View
+            key={item.id}
+            style={[styles.cardOfStack, { top: 15 * (itemId - index) }]}
+          >
             {renderCard(item)}
           </View>
         );
