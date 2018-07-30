@@ -113,7 +113,11 @@ class Deck extends Component {
           </Animated.View>
         );
       }
-      return renderCard(item);
+      return (
+        <View key={item.id} style={styles.cardOfStack}>
+          {renderCard(item)}
+        </View>
+      );
     });
   }
 
