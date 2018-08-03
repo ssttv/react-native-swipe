@@ -65,7 +65,7 @@ export default class App extends React.Component {
   renderCard = item => (
     <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
       <Text style={{ marginBottom: 10 }}>
-        This card can be customized further
+        This card is open for
       </Text>
       <Button
         icon={{ name: "code" }}
