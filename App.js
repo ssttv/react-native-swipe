@@ -69,7 +69,7 @@ export default class App extends React.Component {
       </Text>
       <Button
         icon={{ name: "code" }}
-        backgroundColor="#03A9F4"
+        backgroundColor="#03A9B4"
         title="Button Text"
       />
     </Card>
