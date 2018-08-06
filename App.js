@@ -78,7 +78,7 @@ export default class App extends React.Component {
   renderNoMoreCards = () => (
     <Card title="Out of cards">
       <Text style={{ marginBottom: 10 }}>No content to display</Text>
-      <Button backgroundColor="#03A9F4" title="Get some more" />
+      <Button backgroundColor="#03A9A1" title="Get some more" />
     </Card>
   );
 
