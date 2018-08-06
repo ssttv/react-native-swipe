@@ -69,7 +69,7 @@ export default class App extends React.Component {
       </Text>
       <Button
         icon={{ name: "code" }}
-        backgroundColor="#03A9B4"
+        backgroundColor="#03A9A4"
         title="Button Text"
       />
     </Card>
@@ -78,7 +78,7 @@ export default class App extends React.Component {
   renderNoMoreCards = () => (
     <Card title="Out of cards">
       <Text style={{ marginBottom: 10 }}>No content to display</Text>
-      <Button backgroundColor="#03A9A1" title="Get some more" />
+      <Button backgroundColor="#08B8A8" title="Get some more" />
     </Card>
   );
 
